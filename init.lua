@@ -1,0 +1,2 @@
+require('datsnew')
+require('pluginmanager')
