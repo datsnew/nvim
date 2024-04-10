@@ -16,13 +16,17 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})
-            lspconfig.pyright.setup {}
-            lspconfig.bicep.setup {}
-            lspconfig.omnisharp.setup {}
-            lspconfig.yamlls.setup {}
-            lspconfig.tsserver.setup {}
+            lspconfig.lua_ls.setup({capabilities=capabilities})
+            lspconfig.pyright.setup({capabilities=capabilities})
+            lspconfig.bicep.setup({capabilities=capabilities})
+			lspconfig.omnisharp.setup({
+				capabilities = capabilities,
+				cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+			})
+            lspconfig.yamlls.setup({capabilities=capabilities})
+            lspconfig.tsserver.setup({capabilities=capabilities})
 
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
