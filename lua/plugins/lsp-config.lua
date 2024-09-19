@@ -20,7 +20,10 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({capabilities=capabilities})
             lspconfig.pyright.setup({capabilities=capabilities})
-            lspconfig.bicep.setup({capabilities=capabilities})
+            lspconfig.bicep.setup({
+                capabilities=capabilities,
+                cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/bicep-lsp/extension/Bicep.LangServer.dll" }
+            })
 			lspconfig.omnisharp.setup({
 				capabilities = capabilities,
 				cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
