@@ -15,14 +15,14 @@ if theme == 'tokyo' then
                     floats = "transparent",
                 }
             })
-            require('tokyonight').load()
-            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-            -- --	vim.api.nvim_set_hl(0, "", {bg = "none"})
-            -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" , ctermbg = "none" })
-            -- vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", ctermbg = "none" })
-            -- vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none", ctermbg = "none" })
+           require('tokyonight').load()
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+          	vim.api.nvim_set_hl(0, "", {bg = "none"})
+            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" , ctermbg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", ctermbg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none", ctermbg = "none" })
         end
     }
 elseif theme == 'onedark' then
@@ -32,12 +32,12 @@ elseif theme == 'onedark' then
         priority = 1000,
         config = function()
             require('onedark').setup{
-                style='dark',
+                style='warmer',
             }
             require('onedark').load()
             vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-            --	vim.api.nvim_set_hl(0, "", {bg = "none"})
+            vim.api.nvim_set_hl(0, "", {bg = "none"})
             vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
             vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" , ctermbg = "none" })
             vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", ctermbg = "none" })

@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"lua_ls", "tsserver", "omnisharp", "bicep", "yamlls"}
+                ensure_installed = { "lua_ls", "tsserver", "omnisharp", "bicep", "yamlls", "sqlls" }
             })
         end
     },
@@ -18,19 +18,20 @@ return {
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({capabilities=capabilities})
-            lspconfig.pyright.setup({capabilities=capabilities})
+            lspconfig.lua_ls.setup({ capabilities = capabilities,
+            workspace = {library = vim.api.nvim_get_runtime_file("", true) }})
+            lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.bicep.setup({
-                capabilities=capabilities,
-                cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/bicep-lsp/extension/Bicep.LangServer.dll" }
+                capabilities = capabilities,
+                cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/bicep-lsp/extension/bicepLanguageServer/Bicep.LangServer.dll" }
             })
-			lspconfig.omnisharp.setup({
-				capabilities = capabilities,
-				cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-			})
-            lspconfig.yamlls.setup({capabilities=capabilities})
-            lspconfig.tsserver.setup({capabilities=capabilities})
-
+            lspconfig.omnisharp.setup({
+                capabilities = capabilities,
+                cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+            })
+            lspconfig.tsserver.setup({ capabilities = capabilities })
+            lspconfig.yamlls.setup({ capabilities = capabilities })
+            lspconfig.sqlls.setup({ capabilities = capabilities })
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
