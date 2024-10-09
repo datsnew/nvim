@@ -1,4 +1,4 @@
-local theme = 'tokyo'
+local theme = 'onedark'
 
 if theme == 'tokyo' then
     return {
@@ -70,6 +70,24 @@ elseif theme =='dracula' then
         priority = 1000,
         config = function()
             require('dracula').load()
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+            --	vim.api.nvim_set_hl(0, "", {bg = "none"})
+            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" , ctermbg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", ctermbg = "none" })
+            vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none", ctermbg = "none" })
+        end
+    }
+elseif theme =='rose' then
+    return {
+        'rose-pine/neovim.nvim',
+        name = 'rose-pine',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('rose-pine').setup()
+            vim.cmd('colorscheme rose-pine')
             vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
             --	vim.api.nvim_set_hl(0, "", {bg = "none"})
