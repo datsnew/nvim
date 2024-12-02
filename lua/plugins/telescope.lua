@@ -112,5 +112,10 @@ return {{
             -- load_extension, somewhere after setup function:
             require("telescope").load_extension("ui-select")
         end
+    },
+    {'gbrlsnchs/telescope-lsp-handlers.nvim',
+        config = function()
+            require('telescope').load_extension('lsp_handlers')
+        end
     }
 }
