@@ -68,6 +68,11 @@ return {{
         vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
         -- See `:help telescope.builtin`
+        vim.keymap.set('n', '<space>en', function()
+            require('telescope.builtin').find_files {
+                cwd = vim.fn.stdpath('config')
+            }
+        end, { desc = '[E]dit [N]vim' })
         vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
         vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
         vim.keymap.set('n', '<leader>/', function()

@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "tsserver", "omnisharp", "bicep", "yamlls", "sqlls" }
+                ensure_installed = { "lua_ls", "ts_ls", "omnisharp", "bicep", "yamlls", "sqlls" }
             })
         end
     },
@@ -29,7 +29,7 @@ return {
                 capabilities = capabilities,
                 cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
             })
-            lspconfig.tsserver.setup({ capabilities = capabilities })
+            lspconfig.ts_ls.setup({ capabilities = capabilities })
             lspconfig.yamlls.setup({ capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
                 settings = {
                     yaml = {
