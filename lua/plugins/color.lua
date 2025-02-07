@@ -1,4 +1,4 @@
-local theme = 'onedark'
+local theme = 'tokyo'
 
 if theme == 'tokyo' then
     return {
@@ -62,7 +62,7 @@ elseif theme =='dracula' then
     }
 elseif theme =='rose' then
     return {
-        'rose-pine/neovim.nvim',
+        'rose-pine/neovim',
         name = 'rose-pine',
         lazy = false,
         priority = 1000,

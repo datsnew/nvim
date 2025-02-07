@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls", "omnisharp", "bicep", "yamlls", "sqlls" }
+                ensure_installed = { "lua_ls", "ts_ls", "omnisharp", "bicep", "yamlls", "sqlls", "dockerls", "pyright", "helm_ls" }
             })
         end
     },
@@ -30,12 +30,23 @@ return {
                 cmd = { "dotnet", "/home/pewen/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
             })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
+            lspconfig.dockerls.setup({ capabilities = capabilities })
+            lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.yamlls.setup({ capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
                 settings = {
                     yaml = {
                         schemas = {
                             ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"]= "conf/**/*catalog*",
                             ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
+                        }
+                    }
+                }
+            })
+            lspconfig.helm_ls.setup({ capabilities = capabilities,
+                settings = {
+                    ['helm-ls'] = {
+                        yamlls = {
+                            path = "yaml-language-server",
                         }
                     }
                 }
