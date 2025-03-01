@@ -84,7 +84,7 @@ elseif theme =='cat' then
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "mocha", -- latte, frappe, macchiato, mocha
+                flavour = "macchiato", -- latte, frappe, macchiato, mocha
                 background = { -- :h background
                     light = "latte",
                     dark = "mocha",
@@ -119,9 +119,9 @@ elseif theme =='kanagawa' then
                 overrides = function(colors) -- add/modify highlights
                     return {}
                 end,
-                theme = "wave",              -- Load "wave" theme when 'background' option is not set
+                theme = "lotus",              -- Load "wave" theme when 'background' option is not set
                 background = {               -- map the value of 'background' option to a theme
-                    dark = "wave",           -- try "dragon" !
+                    dark = "dragon",           -- try "dragon" !
                     light = "lotus"
                 }
             })
