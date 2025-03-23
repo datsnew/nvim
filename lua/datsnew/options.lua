@@ -15,6 +15,7 @@ vim.opt.tabstop=4
 vim.opt.expandtab=true
 vim.opt.shiftwidth=4
 vim.o.hlsearch=false
+vim.opt.incsearch=true
 
 -- Make line numbers default
 vim.wo.number = true
